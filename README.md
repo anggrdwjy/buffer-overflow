@@ -72,46 +72,40 @@ gcc heap_overflow.c
 * Generate Shellcode
 * Gain Root Access
 
-#### Perform Spiking
-A. STAT 
-* Upload vulnserver.exe (to Victim)
-* Establish a connection vulnserver using netcat (from Attacker)
+### A. Perform Spiking
+#### 1. STAT 
+###### Upload vulnserver.exe (to Victim)
+###### Establish a connection vulnserver using netcat (from Attacker)
 ```
 nc -nv 172.23.74.125 9999
 ```
-
-* STATS templates and perform spiking. Save file : stats.spk
+###### STATS templates and perform spiking. Save file : stats.spk
 ```
 s_readline();
 s_string("STATS ");
 s_string_variable("0");
 ```
-
-* Testing (from Attacker)
+###### Testing (from Attacker)
 ```
 generic send tcp 10.13.3.55 9999 stats.spk 0 0 
 ```
 
-B. TRUN
-* Upload vulnserver.exe (to Victim)
-* Establish a connection vulnserver using netcat (from Attacker)
+#### 2. TRUN
+###### Upload vulnserver.exe (to Victim)
+###### Establish a connection vulnserver using netcat (from Attacker)
 ```
 nc -nv 172.23.74.125 9999
 ```
-
-* TRUN templates and perform spiking. Save file : trun.spk
+###### TRUN templates and perform spiking. Save file : trun.spk
 ```
 s_readline();
 s_string("TRUN ");
 s_string_variable("0");
 ```
-
-* Testing (from Attacker)
+###### Testing (from Attacker)
 ```
 generic send tcp 10.13.3.55 9999 trun.spk 0 0 
 ```
-
-
 
 #### Perform Fuzzing
 
