@@ -12,7 +12,7 @@
 ## Simple Buffer Overflow in C Programming
 
 #### Stack Buffer Overflow
-* Save stack_bufferoverflow.c
+* Save File stack_bufferoverflow.c
 ```
 #include<studio.h>
 #include<stdlib.h>
@@ -23,7 +23,7 @@ int buffer(char str[]) {
 	return 1;
 }
 int main(int argc, char **argy) {
-	buffer("DDDDDDDDDDDDDDDDD");
+	buffer("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
 	printf("After buffer overflow\n");
 	return 1;
 }
@@ -39,6 +39,31 @@ gcc stack_bufferoverflow.c
 ```
 
 #### Heap Buffer Overflow
+* Save File heap_bufferflow.c
+```
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main(int argc, char **argv){
+	char *in = malloc(18);
+	char *out = malloc(18);
+	strcpy(out, "Sample Output");
+	strcpy(in, argv[1]);
+	printif("Input at %p: %s\n",in,in);
+	printif("Output at %p: %s\n,out,out);
+	printif("\n\n%s\n",out);
+}
+```
+
+* Compile
+```
+gcc heap_overflow.c
+```
+
+* Testing
+```
+./a.out AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```
 
 
 ## Windows Buffer Overflow Exploitation
