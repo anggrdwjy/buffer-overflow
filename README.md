@@ -10,7 +10,7 @@
 
 ## Simple Buffer Overflow in C Programming
 ### A. Stack Buffer Overflow
-#### 1. Save File : stack_bufferoverflow.c
+###### Save File : stack_bufferoverflow.c
 ```
 #include<studio.h>
 #include<stdlib.h>
@@ -26,18 +26,18 @@ int main(int argc, char **argy) {
 	return 1;
 }
 ```
-#### 2. Compile
+###### Compile
 ```
 gcc stack_bufferoverflow.c
 ```
 
-#### 3. Testing
+###### Testing
 ```
 ./a.out
 ```
 
 ### B. Heap Buffer Overflow
-#### 1. Save File : heap_bufferflow.c
+###### Save File : heap_bufferflow.c
 ```
 #include<stdio.h>
 #include<stdlib.h>
@@ -53,12 +53,12 @@ int main(int argc, char **argv){
 }
 ```
 
-#### 2. Compile
+###### Compile
 ```
 gcc heap_overflow.c
 ```
 
-#### 3. Testing
+###### Testing
 ```
 ./a.out AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
