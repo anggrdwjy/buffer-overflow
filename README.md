@@ -8,11 +8,9 @@
 * ESI (Extended Source Index)
 * EDI (Extended Destination Index)
 
-
 ## Simple Buffer Overflow in C Programming
-
-#### Stack Buffer Overflow
-* Save File stack_bufferoverflow.c
+### A. Stack Buffer Overflow
+#### 1. Save File : stack_bufferoverflow.c
 ```
 #include<studio.h>
 #include<stdlib.h>
@@ -28,18 +26,18 @@ int main(int argc, char **argy) {
 	return 1;
 }
 ```
-* Compile
+#### 2. Compile
 ```
 gcc stack_bufferoverflow.c
 ```
 
-* Testing
+#### 3. Testing
 ```
 ./a.out
 ```
 
-#### Heap Buffer Overflow
-* Save File heap_bufferflow.c
+### B. Heap Buffer Overflow
+#### 1. Save File : heap_bufferflow.c
 ```
 #include<stdio.h>
 #include<stdlib.h>
@@ -55,12 +53,12 @@ int main(int argc, char **argv){
 }
 ```
 
-* Compile
+#### 2. Compile
 ```
 gcc heap_overflow.c
 ```
 
-* Testing
+#### 3. Testing
 ```
 ./a.out AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ```
